@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { createStore, bindActionCreators } from 'redux'
-import { isEqual } from 'lodash'
+import isEqual from 'lodash.isequal'
 
 import { createActions } from './actions'
 import { createReducers } from './reducers'
@@ -118,6 +118,8 @@ const createStoreRegistry = () => {
 	}
 }
 
+// Determines if a hook should cause a rerender or not
+// Compares two states based on what kind of needsRender gets passed in
 export const shouldUpdate = ( needsRender, a, b ) => {
 
 	// Handle bool
